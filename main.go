@@ -6,8 +6,9 @@ import (
 	"time"
 )
 
+//util function that returns current time as string
 func now() string {
-	return time.Now().Format(time.Stamp) + " "
+	return time.Now().Format(time.RubyDate) + " "
 }
 
 //Middleware
@@ -26,7 +27,6 @@ func handler(w http.ResponseWriter, r *http.Request) {
 }
 
 func main() {
-
 	http.HandleFunc("/", logger(handler))
 	http.ListenAndServe(":8080", nil)
 }
